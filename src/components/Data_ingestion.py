@@ -12,6 +12,9 @@ from dataclasses import dataclass    #--->  help to store __init__ function of c
 from src.components.Data_transformation import DataTransformation
 from src.components.Data_transformation import DataTransformConfig
 
+from src.components.model_trainer import ModelTrainerConfig
+from src.components.model_trainer import Model_Trainer
+
 @dataclass  #--> it will hold __init__,__repr__ value of class
 class DataIngestionConfig:
     train_data_path = os.path.join('artifacts','train.csv')   # since we use dataclass decorator
@@ -59,7 +62,11 @@ if __name__ == "__main__":
     train_data,test_data=obj.initiate_data_ingestion()
     
     data_transformation = DataTransformation()
-    data_transformation.initiate_data_transform(train_data,test_data)
+    train_arr,test_arr,_=data_transformation.initiate_data_transform(train_data,test_data)
+    
+    model_trainer= Model_Trainer()
+    print(model_trainer.initiate_model_training(train_arr=train_arr,test_arr=test_arr))
+    
     
     
     
