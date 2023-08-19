@@ -1,5 +1,8 @@
--e .   
+# -e .   
 pandas
 numpy
 seaborn
+scikit-learn
+dill
+
         
