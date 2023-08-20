@@ -31,7 +31,7 @@ class DataTransformation:
     
         try:
             
-            num_column= ['reading_score', 'writing_score']
+            num_column= ['writing_score','reading_score' ]
             cat_column= ['gender', 'race_ethnicity', 'parental_level_of_education', 'lunch', 'test_preparation_course']
             
             num_pipeline = Pipeline(
